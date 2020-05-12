@@ -5,7 +5,13 @@
 #import <React/RCTComponent.h>
 #import <React/RCTRootView.h>
 #import <React/RCTTouchHandler.h>
+#if __has_include(<React/RCTRootContentView.h>)
 #import <React/RCTRootContentView.h>
+#elif __has_include("RCTConvert.h")
+#import "RCTRootContentView.h"
+#else
+#import "React/RCTRootContentView.h"
+#endif
 
 #import "RNGestureHandlerState.h"
 #import "RNGestureHandler.h"
